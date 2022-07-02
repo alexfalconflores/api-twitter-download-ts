@@ -37,7 +37,7 @@ const twitter = async (url: string) => {
 const download = async (url: string, username: string) => {
     try {
         let data: IData = { url: url, username: username, status_type: '' };
-        const browser = await launch({ headless: false });
+        const browser = await launch({ headless: true });
         const page = await browser.newPage();
         await page.setViewport({ width: 1920, height: 5000 });
         await page.goto(URL, { timeout: 10000, waitUntil: 'domcontentloaded' });
@@ -140,4 +140,4 @@ const download = async (url: string, username: string) => {
 // console.log(await twitter('https://twitter.com/Crunchyroll/status/1523120523047100416')); //2 image
 // console.log(await twitter('https://twitter.com/Crunchyroll/status/1523091580118179841')); // 1 image
 // console.log(await twitter('https://twitter.com/Crunchyroll/status/1523060197258063873'));// video
-// console.log(await twitter('https://twitter.com/falcon_stefano/status/1523409687353327616')); //GIF
+console.log(await twitter('https://twitter.com/falcon_stefano/status/1523409687353327616')); //GIF
